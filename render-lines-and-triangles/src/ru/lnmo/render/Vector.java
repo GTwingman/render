@@ -73,5 +73,4 @@ public class Vector {
         }
     }
 }
-}
 //w Эльхан и Кирилл
