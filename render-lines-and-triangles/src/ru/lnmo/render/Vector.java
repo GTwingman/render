@@ -56,5 +56,22 @@ public class Vector {
 
         }
     }
+    
+        public static void tanglega(BufferedImage img, double x1, double y1, double x2, double y2, double x3, double y3,int n) {
+        for (int x = 0; x <= Main.w; x++) {
+            for (int y = 0; y < Main.h; y++) {
+                double alpha= ((x-x1) * (y3-y1) - (x3-x1)* (y-y1)) /  ((x2-x1) * (y3-y1)-(x3-x1)*(y2-y1));
+                double beta=((x2-x1) * (y-y1) - (y2-y1) * (x-x1)) / ((x2-x1) * (y3-y1)-(x3-x1)*(y2-y1));
+             /*   double t = Math.signum((x1 - x) * (y2 - y1) - (x2 - x1) * (y1 - y));
+                double v = Math.signum((x2 - x) * (y3 - y2) - (x3 - x2) * (y2 - y));
+                double r = Math.signum((x3 - x) * (y1 - y3) - (x1 - x3) * (y3 - y));*/
+                if (alpha>=0 && beta >= 0 && alpha+beta<=1/*t==v && v==r && r==t*/) {
+                    img.setRGB((int) x, (int) y, (new Color((int)(alpha*255*n)%255,(int)(beta*255)*n%255 ,(int) ((1-alpha-beta)*255*n)%255) ).getRGB());
+                }
+            }
+
+        }
+    }
+}
 }
 //w Эльхан и Кирилл
